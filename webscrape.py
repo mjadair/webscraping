@@ -12,6 +12,12 @@ webpage = requests.get("https://s3.amazonaws.com/codecademy-content/courses/beau
 soup = BeautifulSoup(webpage.content, "html.parser")
 
 
-ratings = soup.find_all(attrs={"class": "Rating"})
+returned_ratings = soup.find_all(attrs={"class": "Rating"})
+
+ratings = []
+
+for rating in returned_ratings[1::]:
+    ratings.append(float(rating.get_text()))
 
 print(ratings)
+
