@@ -35,6 +35,13 @@ for company in returned_companies[1::]:
 data = {"Companies": companies, "Ratings": ratings}
 dataframe = pd.DataFrame.from_dict(data)
 
-print(dataframe)
+# print(dataframe)
+
+
+
+mean_values = dataframe.groupby("Companies").Ratings.mean()
+ten_best = mean_values.nlargest(10)
+
+print(ten_best)
 
 
