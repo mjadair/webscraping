@@ -26,9 +26,15 @@ returned_companies = soup.select(".Company")
 # print(returned_companies)
 companies = []
 
-for company in returned_companies:
+for company in returned_companies[1::]:
     companies.append(company.get_text())
 
-print(companies)
+# print(len(companies), len(ratings))
+
+
+data = {"Companies": companies, "Ratings": ratings}
+dataframe = pd.DataFrame.from_dict(data)
+
+print(dataframe)
 
 
