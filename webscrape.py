@@ -19,5 +19,16 @@ ratings = []
 for rating in returned_ratings[1::]:
     ratings.append(float(rating.get_text()))
 
-print(ratings)
+
+
+returned_companies = soup.select(".Company")
+
+# print(returned_companies)
+companies = []
+
+for company in returned_companies:
+    companies.append(company.get_text())
+
+print(companies)
+
 
